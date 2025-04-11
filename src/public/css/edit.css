@@ -1,0 +1,227 @@
+body {
+    background: linear-gradient(to bottom right, #fce4ec, #e0f7fa);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 0.8em 1.5em;
+    border-bottom: 1px solid #eee;
+}
+
+.container {
+    max-width: 600px;
+    margin: 3em auto;
+    background-color: white;
+    padding: 2em;
+    border-radius: 1em;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.title {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #d8338c;
+    text-align: left;
+    margin-bottom: 1.5em;
+}
+
+form div {
+    margin-bottom: 1.5em;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea {
+    width: 100%;
+    padding: 0.75em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.btn-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+
+button {
+    flex: 1;
+    padding: 0.75em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"] {
+    background: linear-gradient(to right, #c471ed, #f64f59);
+    color: white;
+}
+
+button.btn-back {
+    background: #ddd;
+    color: #333;
+}
+
+button.btn-delete {
+    background: #ff4444;
+    color: white;
+}
+
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+    gap: 1em;
+}
+
+.button-group a,
+.button-group button {
+    flex: 1;
+    padding: 0.8em;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+/* 戻る */
+.btn-back {
+    background-color: #d3d3d3;
+    color: black;
+}
+
+/* 更新 */
+.btn-update {
+    background: linear-gradient(to right, #d26ac2, #f8a8dc);
+    color: white;
+}
+
+/* 削除 */
+.btn-delete {
+    background: linear-gradient(to right, #ff5e62, #ff9966);
+    color: white;
+}
+
+.btn-back, .btn-update, .btn-delete {
+    flex: 1; /* ボタンサイズを均等に */
+    padding: 0.5em;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+
+/* 追加  */
+.alert {
+    background-color: #ffe6e6;
+    color: #cc0000;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px solid #ff9999;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin: 1em 0;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1em;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 2em;
+}
+
+.btn-gray {
+    background-color: #ccc;
+    padding: 0.7em 2em;
+    border-radius: 8px;
+    text-decoration: none;
+    color: black;
+}
+
+.btn-pink {
+    background: linear-gradient(to right, #ec6ead, #fbc7d4);
+    color: white;
+    padding: 0.7em 2em;
+    border: none;
+    border-radius: 8px;
+}
+
+/* ロゴ部分 */
+.logo {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #d35ca3;
+}
+
+/* 右側リンク＆ログアウトフォーム */
+.header-inner > div {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+/* リンクのスタイル */
+.header-inner a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ログアウトボタン */
+.header-inner form button {
+    padding: 0.4em 0.8em;
+    background-color: #eee;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.header-inner form button:hover {
+    background-color: #ccc;
+}
+
+.button-group form {
+    flex: 1;
+    display: flex;
+}
+
+.button-group form button {
+    width: 100%;
+}
