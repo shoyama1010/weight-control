@@ -95,3 +95,9 @@ php artisan migrate
 DatabaseSeederにシーダーを設定して、PHPコンテナにログインした状態で
 
 php artisan db:seed
+
+## 7 アプリケーション起動キーの作成
+
+PHPコンテナにログインした状態で
+
+php artisan key:generate
