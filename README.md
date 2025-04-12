@@ -28,7 +28,7 @@ http://localhost
 
 # ER図
 
-
+![Image](https://github.com/user-attachments/assets/ae88f826-c42f-44d3-a47f-845c28e448fe)
 
 # 環境構築
 ## 1 Gitファイルをクローンする
