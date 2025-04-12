@@ -88,3 +88,10 @@ php artisan migrate
 
 ## 6 ダミーデータ作成
 
+ファクトリの作成：fakerメソッドを使用して、３５件のランダムデータを作成する
+
+ファクトリのシーダーへの設定：WeightLogSeederに登録
+
+DatabaseSeederにシーダーを設定して、PHPコンテナにログインした状態で
+
+php artisan db:seed
