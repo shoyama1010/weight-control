@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1 class="title">体重管理画面！</h1>
+    <h1 class="title">Weight-control</h1>
 
     <div class="stats-box">
         <div>目標体重 <span>{{ number_format($targetWeight, 1) ?? '未設定' }} kg</span></div>
@@ -19,7 +19,7 @@
     {{-- 横並び用のラッパー --}}
     <div class="search-add-wrapper">
         {{-- 検索フォーム --}}
-        <form class="search-form" action="{{ route('weight_logs.search') }}" method="GET" >
+        <form class="search-form" action="{{ route('weight_logs.search') }}" method="GET">
             <label for="from">
                 <!-- 日付（from） -->
             </label>
@@ -88,6 +88,18 @@
 
 </div>
 
+<!-- エラーがあるときにモーダルを再表示 -->
+@if ($errors->any())
+<script>
+    window.onload = function() {
+        const modal = document.getElementById('modal1');
+        if (modal) {
+            modal.style.display = 'block';
+        }
+    };
+</script>
+@endif
+
 <!-- モーダル -->
 <div id="modal1" class="modal">
     <div class="modal-content">
@@ -98,19 +110,29 @@
             @csrf
             <div class="form-group">
                 <label for="date">日付</label>
-                <input type="date" name="date" required>
+                <!-- <input type="date" name="date" required> -->
+                <input type="date" name="date" id="date" value="{{ old('date') }}">
+                @error('date')
+                <div class="error-message">{{ $message }}</div>
+                @enderror
             </div>
+
             <div class="form-group">
                 <label for="weight">体重 <span class="unit">（kg）</span></label>
-                <input type="number" step="0.1" name="weight" required>
+                <!-- <input type="number" step="0.1" name="weight" required> -->
+                <input type="number" step="0.1" name="weight" id="weight" value="{{ old('weight') }}">
             </div>
+
             <div class="form-group">
                 <label for="calories">摂取カロリー <span class="unit">（kcal）</span></label>
-                <input type="number" name="calories" required>
+                <!-- <input type="number" name="calories" required> -->
+                <input type="number" name="calories" id="calories" value="{{ old('calories') }}">
             </div>
+
             <div class="form-group">
                 <label for="exercise_time">運動時間</label>
-                <input type="time" name="exercise_time">
+                <!-- <input type="time" name="exercise_time"> -->
+                <input type="time" name="exercise_time" id="exercise_time" value="{{ old('exercise_time') }}">
             </div>
 
             <div class="form-group">

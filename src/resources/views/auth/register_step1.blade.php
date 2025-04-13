@@ -5,13 +5,15 @@
 
 <head>
     <title>会員登録</title>
-    <!-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 </head>
 
 <body>
     <div class="auth-container">
+        <h1>PiGLy</h1>
         <h2>新規会員登録</h2>
+        <p class="account-text">step1アカウント情報の登録</p>
+
         <form action="{{ url('/register/step1') }}" method="POST">
             @csrf
             <div>
@@ -32,9 +34,9 @@
                 @error('password') <div>{{ $message }}</div> @enderror
             </div>
 
-            <p>アカウントをお持ちの方はこちらから <a href="{{ route('login') }}">ログイン</a></p>
-
             <button type="submit">次に進む</button>
+            <p class="center-text"><a href="{{ route('login') }}">ログインはこちら</a></p>
+
         </form>
 
     </div>

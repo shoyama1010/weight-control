@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\WeightLog;
 use App\Models\WeightTarget;
-
+use App\Http\Requests\WeightLogRequest;
 
 class WeightLogController extends Controller
 {
@@ -42,25 +42,12 @@ class WeightLogController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(WeightLogRequest $request)
     {
-        $request->validate([
-            'date' => 'required|date',
-            'weight' => 'required|numeric|min:0',
-            'calories' => 'required|integer|min:0',
-            'exercise_time' => 'nullable|date_format:H:i',
-            'exercise_content' => 'nullable|string|max:255',
-        ]);
+        $validated = $request->validated();
 
         $user = auth()->user();
-
-        $user->weightLogs()->create([
-            'date' => $request->date,
-            'weight' => $request->weight,
-            'calories' => $request->calories,
-            'exercise_time' => $request->exercise_time,
-            'exercise_content' => $request->exercise_content,
-        ]);
+        $user->weightLogs()->create($validated);
 
         return redirect()->route('weight_logs.index')->with('success', '体重ログを追加しました！');
     }
@@ -70,17 +57,13 @@ class WeightLogController extends Controller
         return view('weight_logs.edit', compact('weight_log'));
     }
 
-    public function update(Request $request, WeightLog $weight_log)
+    public function update(WeightLogRequest $request, WeightLog $weight_log)
     {
-        $request->validate([
-            'date' => 'required|date',
-            'weight' => 'required|numeric|min:0',
-            'calories' => 'nullable|integer|min:0',
-            'exercise_time' => 'nullable|date_format:H:i',
-            'exercise_content' => 'nullable|string|max:255',
-        ]);
 
-        $weight_log->update($request->all());
+        $validated = $request->validated();
+
+        // 更新処理
+        $weight_log->update($validated);
 
         return redirect()->route('weight_logs.index')->with('success', '更新しました');
     }

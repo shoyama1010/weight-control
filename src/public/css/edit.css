@@ -32,7 +32,7 @@ body {
 }
 
 form div {
-    margin-bottom: 1.5em;
+    margin-bottom: -3.2em;
     text-align: left;
 }
 
@@ -60,59 +60,6 @@ textarea {
     height: 100px;
 }
 
-.btn-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.5em;
-    margin-top: 1em;
-}
-
-button {
-    flex: 1;
-    padding: 0.75em;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button[type="submit"] {
-    background: linear-gradient(to right, #c471ed, #f64f59);
-    color: white;
-}
-
-button.btn-back {
-    background: #ddd;
-    color: #333;
-}
-
-button.btn-delete {
-    background: #ff4444;
-    color: white;
-}
-
-
-.button-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2em;
-    gap: 1em;
-}
-
-.button-group a,
-.button-group button {
-    flex: 1;
-    padding: 0.8em;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    font-size: 1em;
-    text-decoration: none;
-}
-
 /* 戻る */
 .btn-back {
     background-color: #d3d3d3;
@@ -129,26 +76,14 @@ button.btn-delete {
 .btn-delete {
     background: linear-gradient(to right, #ff5e62, #ff9966);
     color: white;
-}
-
-.btn-back, .btn-update, .btn-delete {
-    flex: 1; /* ボタンサイズを均等に */
-    padding: 0.5em;
-    border-radius: 6px;
+    padding: 0.7em 2em;
+    border: none;
+    border-radius: 8px;
     font-weight: bold;
+    cursor: pointer;
 }
 
-
-/* 追加  */
-.alert {
-    background-color: #ffe6e6;
-    color: #cc0000;
-    padding: 1em;
-    margin-bottom: 1em;
-    border: 1px solid #ff9999;
-    border-radius: 5px;
-}
-
+/* 追加 */
 .form-group {
     margin: 1em 0;
 }
@@ -159,20 +94,14 @@ button.btn-delete {
     font-size: 1em;
 }
 
+/* ボタン配置：中央寄せ、3つ横並び */
 .button-group {
     display: flex;
     justify-content: center;
     gap: 1em;
-    margin-top: 2em;
+    margin-top: 2.0em;
 }
 
-.btn-gray {
-    background-color: #ccc;
-    padding: 0.7em 2em;
-    border-radius: 8px;
-    text-decoration: none;
-    color: black;
-}
 
 .btn-pink {
     background: linear-gradient(to right, #ec6ead, #fbc7d4);
@@ -217,11 +146,58 @@ button.btn-delete {
     background-color: #ccc;
 }
 
+.button-group a,
+.button-group button,
 .button-group form {
-    flex: 1;
-    display: flex;
+    /* flex: 1; */
+    text-align: center;
+
 }
 
-.button-group form button {
-    width: 100%;
+.delete-button-wrapper {
+    text-align: right;
+    margin-top: 1.5em;
+}
+
+.btn-delete {
+    background: linear-gradient(to right, #ff5e62, #ff9966);
+    color: white;
+    padding: 0.7em 0.5em;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-back,
+.btn-update {
+    padding: 1em 2em; /* ← 横の余白を減らす（長さを短く） */
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    width: auto;              /* ← 必要最小限のサイズに */
+    min-width: 70px;          /* ← お好みで調整 */
+}
+
+.delete-button-wrapper {
+    display: flex;
+    justify-content: flex-end; /* ←右端に寄せる */
+    margin-top: 1.0em;
+}
+
+.button-group a,
+.button-group button {
+    width: auto;          /* ← フォーム幅に応じてサイズ調整 */
+    min-width: 100px;     /* ← 最低幅を設定（お好みで調整） */
+    padding: 0.5em 1em;   /* ← 上下・左右の余白も調整 */
+    font-size: 0.9em;
+}
+
+.btn-gray {
+    background-color: #ccc;
+    padding: 0.7em 2em;
+    border-radius: 8px;
+    text-decoration: none;
+    color: black;
 }

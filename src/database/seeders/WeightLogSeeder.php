@@ -34,9 +34,7 @@ class WeightLogSeeder extends Seeder
                 WeightTarget::factory()->make()->toArray()
             );
         }
-        // $user->weightTarget()->create(
-        //     WeightTarget::factory()->make()->toArray()
-        // );
+        
 
         // 3. weight_logs を35件作成して紐づけ
         if ($user->weightLogs()->count() < 35) {

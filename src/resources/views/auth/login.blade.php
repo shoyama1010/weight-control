@@ -11,6 +11,7 @@
 
 <body>
     <div class="auth-container">
+    <h1>PiGLy</h1>
     <h2>ログイン</h2>
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -25,10 +26,10 @@
                 <input type="password" name="password">
                 @error('password') <div>{{ $message }}</div> @enderror
             </div>
-
             <button type="submit">ログイン</button>
 
-            <p><a href="{{ url('/register/step1') }}">アカウント作成はこちら</a></p>
+            <p class="center-text"><a href="{{ url('/register/step1') }}">アカウント作成はこちら</a></p>
+
         </form>
     </div>
 </body>
