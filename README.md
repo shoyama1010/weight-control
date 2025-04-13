@@ -25,6 +25,9 @@ http://localhost
 
 # テーブル設計
 
+![Image](https://github.com/user-attachments/assets/2a1afd78-53af-44a0-8b3d-10d8291c6e6f)
+
+![Image](https://github.com/user-attachments/assets/3c7c88ee-784c-46ca-826c-f81aa23531dd)
 
 # ER図
 
