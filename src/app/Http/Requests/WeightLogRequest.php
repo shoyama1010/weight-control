@@ -27,8 +27,11 @@ class WeightLogRequest extends FormRequest
             'date' => ['required', 'date'],
             'weight' => ['required', 'numeric', 'min:1', 'regex:/^\d{1,3}(\.\d)?$/'],
             'calories' => ['required', 'integer', 'min:0'],
-            'exercise_time' => ['nullable', 'date_format:H:i'],
-            'exercise_content' => ['nullable', 'string', 'max:255'],
+
+            // 'exercise_time' => ['nullable', 'date_format:H:i'],
+            'exercise_time' => ['required', 'date_format:H:i'],
+
+            'exercise_content' => ['nullable', 'string', 'max:120'],
         ];
     }
 
@@ -48,7 +51,8 @@ class WeightLogRequest extends FormRequest
             'calories.min' => '0以上のカロリーを入力してください。',
 
             'exercise_time.date_format' => '運動時間は「00:00」の形式で入力してください。',
-            'exercise_content.max' => '運動内容は255文字以内で入力してください。',
+            'exercise_time.required' => '運動時間を入力してください。',
+            'exercise_content.max' => '運動内容は120文字以内で入力してください。',
         ];
     }
 }

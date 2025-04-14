@@ -57,13 +57,20 @@ class WeightLogController extends Controller
         return view('weight_logs.edit', compact('weight_log'));
     }
 
+    // 更新処理
     public function update(WeightLogRequest $request, WeightLog $weight_log)
     {
 
         $validated = $request->validated();
 
-        // 更新処理
-        $weight_log->update($validated);
+        if ($weight_log->isDirty()) {
+            $weight_log->update($validated);
+        } else {
+            // 明示的に updated_at だけ更新する
+            $weight_log->touch();
+        }
+        // 更新
+        // $weight_log->update($validated);
 
         return redirect()->route('weight_logs.index')->with('success', '更新しました');
     }
