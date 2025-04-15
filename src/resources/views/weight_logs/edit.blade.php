@@ -6,17 +6,6 @@
 <div class="container">
     <h2 class="title">Weight Log_edit</h2>
 
-    <!-- {{-- バリデーションエラー表示 --}}
-    @if ($errors->any())
-    <div class="alert">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif -->
-
     {{-- フォームグループ --}}
     <form id="update-form" action="{{ route('weight_logs.update', $weight_log->id) }}" method="POST">
         @csrf
@@ -48,12 +37,12 @@
         <div class="form-group">
             <label for="exercise_time">運動時間</label>
             <!-- <input type="time" id="exercise_time" name="exercise_time" value="{{ old('exercise_time', $weight_log->exercise_time) }}"> -->
-            <input type="time" id="exercise_time" name="exercise_time" value="{{ old('exercise_time') }}">
+            <input type="time" name="exercise_time" id="exercise_time"
+       value="{{ old('exercise_time', \Carbon\Carbon::parse($weight_log->exercise_time)->format('H:i')) }}">
             @error('exercise_time')
             <div class="error-message">{{ $message }}</div>
             @enderror
         </div>
-
         <div class="form-group">
             <label for="exercise_content">運動内容</label>
             <textarea id="exercise_content" name="exercise_content" placeholder="運動内容を追加">{{ old('exercise_content', $weight_log->exercise_content) }}</textarea>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\WeightTarget;
 
-
+// 「目標体重を設定・更新」するため
 class TargetWeightController extends Controller
 {
     public function edit()
@@ -14,7 +14,6 @@ class TargetWeightController extends Controller
         $user = Auth::user();
         $target = Auth::user()->weightTarget;
 
-        // return view('target_weight.edit', compact('target'));
         return view('weight_logs.goal_setting', ['targetWeight' => $target->target_weight ?? '']);
     }
 
@@ -41,7 +40,7 @@ class TargetWeightController extends Controller
         $user = Auth::user();
 
         $target = Auth::user()->weightTarget;
-        
+
          // ★ モデルの保存
         WeightTarget::updateOrCreate(
             ['user_id' => $user->id],

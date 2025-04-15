@@ -8,9 +8,7 @@ body {
 .header-inner {
     display: flex;
     justify-content: space-between;
-    /* background-color: #d8338c; */
     background-color: #fff;
-    /* color: white; */
     color: #d8338c;
     padding: 1em;
 }
@@ -101,22 +99,28 @@ body {
 }
 
 .search-summary {
-    text-align: center;
-    margin-bottom: 1em;
-    color: #333;
+    /* text-align: center; */
+    /* margin-bottom: 1em; */
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
 }
 
 /* ページネーション */
 .pagination {
     /* text-align: center; */
-    margin-top: 2em;
-    font-size: 0.9em;
+    /* margin-top: 2em; */
+    /* font-size: 0.9em; */
     /* word-break: break-word; */
-
+    list-style-type: none;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5em;
+}
+
+.pagination li {
+    display: inline-block;
 }
 
 .pagination a,
@@ -203,7 +207,6 @@ body {
     /* text-align: left; */
 }
 
-
 /* モーダル中身 */
 .modal-content {
     background: #fff;
@@ -215,7 +218,6 @@ body {
     /* ↓追加ポイント */
     max-height: 90vh;       /* 画面の90%までに制限 */
     overflow-y: auto;       /* はみ出たらスクロール */
-
     position: relative;
 }
 

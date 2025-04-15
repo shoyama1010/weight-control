@@ -18,13 +18,17 @@
             <div>
                 <label>メールアドレス</label>
                 <input type="email" name="email" value="{{ old('email') }}">
-                @error('email') <div>{{ $message }}</div> @enderror
+                @error('email')
+                <div class="error">{{ $message }}</div>
+                @enderror
             </div>
 
             <div>
                 <label>パスワード</label>
                 <input type="password" name="password">
-                @error('password') <div>{{ $message }}</div> @enderror
+                @error('password')
+                <div class="error">{{ $message }}</div>
+                @enderror
             </div>
             <button type="submit">ログイン</button>
 

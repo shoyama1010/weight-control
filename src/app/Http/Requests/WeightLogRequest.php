@@ -28,8 +28,8 @@ class WeightLogRequest extends FormRequest
             'weight' => ['required', 'numeric', 'min:1', 'regex:/^\d{1,3}(\.\d)?$/'],
             'calories' => ['required', 'integer', 'min:0'],
 
-            // 'exercise_time' => ['nullable', 'date_format:H:i'],
-            'exercise_time' => ['required', 'date_format:H:i'],
+            'exercise_time' => ['nullable', 'date_format:H:i'], //（nullable にして format エラーを回避）
+            // 'exercise_time' => ['required', 'date_format:H:i'],
 
             'exercise_content' => ['nullable', 'string', 'max:120'],
         ];

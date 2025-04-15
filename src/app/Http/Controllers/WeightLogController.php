@@ -13,21 +13,17 @@ class WeightLogController extends Controller
     public function index()
     {
         $user = Auth::user();
-
         // 一覧取得
         $weightLogs = WeightLog::where('user_id', $user->id)
             ->orderBy('date', 'desc')
-            ->paginate(7);
-
+            ->paginate(8);
         // 最新体重（最も新しい日付のレコード）
-        // $latestWeight = $weightLogs->first()?->weight ?? null;
         $firstLog = $weightLogs->first();
         $latestWeight = $firstLog ? $firstLog->weight : null;
 
         // 目標体重（ユーザーに対して1対1）
         $target = $user->weightTarget;
         $targetWeight = $target ? $target->target_weight : null;
-        // $targetWeight = $user->weightTarget?->target_weight ?? null;
 
         // 減量差分（数値同士であれば計算）
         $weightDiff = is_numeric($latestWeight) && is_numeric($targetWeight)
@@ -38,7 +34,7 @@ class WeightLogController extends Controller
             'weightLogs' => $weightLogs,
             'latestWeight' => $latestWeight,
             'targetWeight' => $targetWeight,
-            'weightDiff' => $weightDiff, // ← 必ずこの行を含めてください
+            'weightDiff' => $weightDiff,
         ]);
     }
 
@@ -60,17 +56,15 @@ class WeightLogController extends Controller
     // 更新処理
     public function update(WeightLogRequest $request, WeightLog $weight_log)
     {
-
         $validated = $request->validated();
 
-        if ($weight_log->isDirty()) {
-            $weight_log->update($validated);
-        } else {
-            // 明示的に updated_at だけ更新する
-            $weight_log->touch();
-        }
-        // 更新
-        // $weight_log->update($validated);
+        $weight_log->update($validated);
+
+        // if ($weight_log->isDirty()) {
+        //     $weight_log->update($validated);
+        // } else {
+        //     $weight_log->touch(); // updated_at だけ更新したいとき
+        // }
 
         return redirect()->route('weight_logs.index')->with('success', '更新しました');
     }
@@ -91,8 +85,9 @@ class WeightLogController extends Controller
             $query->where('date', '<=', $to);
         }
 
-        $weightLogs = $query->orderBy('date', 'desc')->paginate(5);
+        $weightLogs = $query->orderBy('date', 'desc')->paginate(8);
 
+        $searchCount = $weightLogs->total(); // ページネーション全体件数を取得
         // 必要に応じて、目標体重などの変数も取得
         $user = auth()->user();
         // $targetWeight = auth()->user()->target_weight ?? null;
@@ -108,8 +103,10 @@ class WeightLogController extends Controller
             'weightLogs',
             'targetWeight',
             'latestWeight',
-            'weightDiff' // ⭐ これが不足していた
+            'weightDiff' ,
+            'searchCount' // ←追加
         ));
+
     }
 
     public function destroy(WeightLog $weight_log)

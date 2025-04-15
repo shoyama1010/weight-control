@@ -18,13 +18,17 @@
             <div>
                 <label>現在の体重 (kg)</label>
                 <input type="text" name="current_weight" value="{{ old('current_weight') }}">
-                @error('current_weight') <div>{{ $message }}</div> @enderror
+                @error('current_weight')
+                <div class="error">{{ $message }}</div>
+                @enderror
             </div>
 
             <div>
                 <label>目標体重 (kg)</label>
                 <input type="text" name="target_weight" value="{{ old('target_weight') }}">
-                @error('target_weight') <div>{{ $message }}</div> @enderror
+                @error('target_weight')
+                <div class="error">{{ $message }}</div>
+                @enderror
             </div>
 
             <button type="submit">アカウント作成</button>

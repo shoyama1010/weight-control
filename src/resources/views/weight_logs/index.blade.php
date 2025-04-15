@@ -25,9 +25,7 @@
             </label>
             <input type="date" id="from" name="from" value="{{ request('from') }}">
 
-            <label for="to">
-                <!-- 日付（to） -->～
-            </label>
+            <label for="to">～</label>
             <input type="date" id="to" name="to" value="{{ request('to') }}">
 
             <button type="submit">検索</button>
@@ -40,9 +38,10 @@
         {{-- 検索条件の表示（任意） --}}
         @if(request('from') || request('to'))
         <div class="search-summary">
-            検索中：
-            @if(request('from')) {{ request('from') }} ～ @endif
-            @if(request('to')) {{ request('to') }} @endif
+            @if(request('from')) {{ request('from') }} @endif
+            〜
+            @if(request('to')) {{ request('to') }} @endif の検索結果：
+            <strong>{{ $searchCount }}件</strong>
         </div>
         @endif
 
@@ -51,6 +50,7 @@
             <a href="#modal1" class="btn-add">データ追加</a>
         </div>
     </div>
+
     <!--*********: データー管理詳細（下部）********** -->
     <table class="weight-table">
         <thead>
@@ -77,13 +77,8 @@
         </tbody>
     </table>
 
-    <div class="pagination">
-        <!-- {{ $weightLogs->links() }} -->
-        <nav class="pagination">
-            <a href="?page=1" class="page-link">1</a>
-            <a href="?page=2" class="page-link">2</a>
-            <a href="?page=3" class="page-link">3</a>
-        </nav>
+    <div class="pagination-wrapper">
+    {{ $weightLogs->links('vendor.pagination.default') }}
     </div>
 
 </div>

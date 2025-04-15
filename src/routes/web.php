@@ -37,6 +37,8 @@ Route::get('/weight_logs', [WeightLogController::class, 'index'])->name('weight_
 
 Route::get('/weight_logs/search', [WeightLogController::class, 'search'])->name('weight_logs.search');
 
+Route::resource('weight_logs', WeightLogController::class);
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/weight_logs', [WeightLogController::class, 'index'])->name('weight_logs.index');
     Route::post('/weight_logs', [WeightLogController::class, 'store'])->name('weight_logs.store');
@@ -49,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/target_weight', [TargetWeightController::class, 'update'])->name('target_weight.update');
 
     Route::delete('/weight_logs/{weight_log}', [WeightLogController::class, 'destroy'])->name('weight_logs.destroy');
-
+    // 目標体重の設定・更新
     Route::get('/goal_setting', [TargetWeightController::class, 'edit'])->name('target_weight.edit');
     Route::put('/goal_setting', [TargetWeightController::class, 'update'])->name('target_weight.update');
 });
