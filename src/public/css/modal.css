@@ -10,16 +10,24 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    /* 追加↓ */
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: center;
+    /* 追加↓ */
+    display: none;
 }
 
 /* モーダルを表示状態にする */
-.modal:target {
+/* .modal:target {
     visibility: visible;
     opacity: 1;
+} */
+
+/* モーダルが表示されたときに使うクラス */
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+    display: flex; /* ← これがないと表示されません */
 }
 
 /* モーダルコンテンツ */

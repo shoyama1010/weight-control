@@ -46,8 +46,12 @@
         @endif
 
         {{-- 右：データ追加ボタン --}}
-        <div class="actions">
+        <!-- <div class="actions">
             <a href="#modal1" class="btn-add">データ追加</a>
+        </div> -->
+        <div class="actions">
+            <!-- 「モーダルを開く」専用URLとして weight_logs.create -->
+            <a href="{{ route('weight_logs.create') }}" class="add-btn">データ追加</a>
         </div>
     </div>
 
@@ -78,7 +82,7 @@
     </table>
 
     <div class="pagination-wrapper">
-    {{ $weightLogs->links('vendor.pagination.default') }}
+        {{ $weightLogs->links('vendor.pagination.default') }}
     </div>
 
 </div>
@@ -100,6 +104,14 @@
     <div class="modal-content">
         <a href="#" class="close-btn">✕</a>
         <h2>Weight Log追加</h2>
+
+        @if ($errors->any())
+        <script>
+            window.onload = function() {
+                document.getElementById('modal1').style.display = 'block';
+            };
+        </script>
+        @endif
 
         <form action="{{ route('weight_logs.store') }}" method="POST">
             @csrf
@@ -141,7 +153,35 @@
             </div>
         </form>
     </div>
-
 </div>
+
+<script>
+    window.addEventListener('load', () => {
+        // window.location.pathname で / weight_logs / create を判定
+        const pathname = window.location.pathname;
+        const modal = document.getElementById('modal1');
+
+        console.log("📌 現在のパス:", pathname);
+
+        // /weight_logs/create にアクセスされたときのみモーダルを表示
+        if (pathname === '/weight_logs/create') {
+            if (modal) {
+                modal.classList.add('show'); // CSSで display:flex に
+                console.log("✅ モーダル表示されました！");
+            } else {
+                console.warn("⚠️ modal1 が見つかりません！");
+            }
+        }
+
+        // ← ここが今回追加の処理（✕ボタン押下でモーダルを閉じる）
+        const closeBtn = document.querySelector('.close-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // aタグのデフォルト動作を止める
+                window.location.href = '/weight_logs'; // 一覧画面に戻す
+            });
+        }
+    });
+</script>
 
 @endsection

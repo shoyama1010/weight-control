@@ -33,6 +33,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register/step2', [WeightInitController::class, 'show'])->name('register.step2');
 Route::post('/register/step2', [WeightInitController::class, 'store']);
 
+// 一般ユーザーが閲覧できる体重記録メイン画面
 Route::get('/weight_logs', [WeightLogController::class, 'index'])->name('weight_logs.index');
 
 Route::get('/weight_logs/search', [WeightLogController::class, 'search'])->name('weight_logs.search');
@@ -40,6 +41,10 @@ Route::get('/weight_logs/search', [WeightLogController::class, 'search'])->name(
 Route::resource('weight_logs', WeightLogController::class);
 
 Route::middleware(['auth'])->group(function () {
+    // ※あえて index メソッドを使って create画面（モーダル）を表示する
+    Route::get('/weight_logs/create', [WeightLogController::class, 'index'])->name('weight_logs.create');
+
+    // 管理画面の作成、編集、更新、削除
     Route::get('/weight_logs', [WeightLogController::class, 'index'])->name('weight_logs.index');
     Route::post('/weight_logs', [WeightLogController::class, 'store'])->name('weight_logs.store');
 
@@ -51,7 +56,11 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/target_weight', [TargetWeightController::class, 'update'])->name('target_weight.update');
 
     Route::delete('/weight_logs/{weight_log}', [WeightLogController::class, 'destroy'])->name('weight_logs.destroy');
+
     // 目標体重の設定・更新
     Route::get('/goal_setting', [TargetWeightController::class, 'edit'])->name('target_weight.edit');
     Route::put('/goal_setting', [TargetWeightController::class, 'update'])->name('target_weight.update');
+
+    // 不要な show ルートは除外（エラー対策）
+    Route::resource('weight_logs', WeightLogController::class)->except(['show']);
 });
