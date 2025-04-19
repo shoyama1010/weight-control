@@ -8,6 +8,12 @@
 http://localhost
 
 # 機能一覧
+・認証機能
+
+・検索機能
+
+・CRUD機能
+
 
 # 使用技術
 ・Laravel 8
@@ -23,6 +29,8 @@ http://localhost
 ・mysql 8.0.26
 
 ・javascript (モーダル画面のみ)
+
+・fortify
 
 # テーブル設計
 
