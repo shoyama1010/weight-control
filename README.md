@@ -22,6 +22,7 @@ http://localhost
 
 ・mysql 8.0.26
 
+・javascript (モーダル画面のみ)
 
 # テーブル設計
 
