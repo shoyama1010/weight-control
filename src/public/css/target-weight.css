@@ -1,0 +1,150 @@
+/* ==========================
+   目標体重設定画面のスタイル調整
+   ========================== */
+
+   body {
+    background: linear-gradient(to bottom right, #fbeaff, #eaf6f8);
+    font-family: "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 2em;
+    box-sizing: border-box;
+
+}
+
+.target-weight-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2.5em;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+.target-weight-box h2 {
+    color: #d8338c;
+    font-size: 1.8em;
+    margin-bottom: 1.2em;
+}
+
+.form-group {
+    margin-bottom: 2em;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 0.8em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.button-group .btn-back,
+.button-group .btn-submit {
+    width: 120px;
+    padding: 0.8em 1.5em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-group .btn-back {
+    background-color: #ccc;
+    color: #333;
+}
+
+.button-group .btn-submit {
+    background: linear-gradient(to right, #d26ac2, #f8a8dc);
+    color: white;
+}
+
+.button-group .btn-submit:hover {
+    background: linear-gradient(to right, #c457b0, #ee7ac0);
+}
+
+/* エラー表示 */
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 0.4em;
+}
+
+/* 追加 */
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    color: #d8338c;
+    padding: 0  2em;
+    height: 71px;
+    max-width: 1512px;
+    margin: 0 auto;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: #cc3399;
+}
+
+.header-inner a,
+.header-inner button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0.4em 1em;
+    margin-left: 1em;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header-inner a:hover,
+.header-inner button:hover {
+    background-color: #f0f0f0;
+}
+
+.header-inner button {
+    border: none;
+}
+
+.header-bg {
+    width: 100%;
+    background-color: #fff;
+}

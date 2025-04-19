@@ -128,23 +128,35 @@
                 <label for="weight">体重 <span class="unit">（kg）</span></label>
                 <!-- <input type="number" step="0.1" name="weight" required> -->
                 <input type="number" step="0.1" name="weight" id="weight" value="{{ old('weight') }}">
+                @error('weight')
+                <div class="error-message">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="form-group">
                 <label for="calories">摂取カロリー <span class="unit">（kcal）</span></label>
                 <!-- <input type="number" name="calories" required> -->
                 <input type="number" name="calories" id="calories" value="{{ old('calories') }}">
+                @error('calories')
+                <div class="error-message">{{ $message }}</div>
+                @enderror
             </div>
-
             <div class="form-group">
                 <label for="exercise_time">運動時間</label>
                 <!-- <input type="time" name="exercise_time"> -->
                 <input type="time" name="exercise_time" id="exercise_time" value="{{ old('exercise_time') }}">
+                
+                @error('exercise_time')
+                <div class="error-message">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="form-group">
                 <label for="exercise_content">運動内容</label>
                 <textarea name="exercise_content" placeholder="運動内容を追加" rows="3"></textarea>
+                @error('exercise_content')
+                <div class="error-message">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="form-buttons">

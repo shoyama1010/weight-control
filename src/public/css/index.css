@@ -8,18 +8,28 @@ body {
 .header-inner {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #fff;
     color: #d8338c;
-    padding: 1em;
+    padding: 1.5em;
+    /* 追加 */
+    /* width: 100%; */
+    max-width: 1512px;
+    /* max-width: 1120px; */
+    height: 71px;
+    margin: 0 auto;
 }
 
 .logo {
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: bold;
+    color: #cc3399;
 }
 
 .container {
-    max-width: 800px;
+    /* max-width: 800px; */
+    /* max-width: 1000px; */
+    max-width: 1120px;
     margin: 2em auto;
     background: white;
     padding: 2em;
@@ -38,6 +48,13 @@ body {
     justify-content: space-around;
     margin-bottom: 2em;
     font-weight: bold;
+    /* 追加 4/18 */
+    align-items: center;
+    text-align: center;
+    background: #f8f2ff;
+    border-radius: 10px;
+    padding: 1.5em 1em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .weight-table {
@@ -73,10 +90,10 @@ body {
 .search-form {
     margin-bottom: 1.5em;
     text-align: center;
-
     /* 追加 */
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    flex-wrap: nowrap;
     gap: 0.5em;
     align-items: center;
 }
@@ -87,9 +104,11 @@ body {
 
 .search-form input[type="date"],
 .search-form button {
-    padding: 0.4em 0.8em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    padding: 0.5em 1em;
+    /* border: 1px solid #ccc; */
+    border-radius: 3px;
+    width: auto;
+    min-width: 120px;
 }
 
 .reset-btn {
@@ -185,10 +204,12 @@ body {
 .search-add-wrapper {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    /* align-items: flex-end; */
+    align-items: center;
+
     flex-wrap: wrap; /* 画面幅が狭いとき折り返し */
     gap: 1em;
-    margin: 1.5em 0;
+    margin: 2em 0 1em;
 }
 
 /* データ追加ボタン */
@@ -203,8 +224,10 @@ body {
 }
 
 .actions {
-    margin-bottom: 1.5em;
-    /* text-align: left; */
+    /* margin-bottom: 1.5em; */
+
+    /* 追加 4/18 */
+    margin-left: auto;
 }
 
 /* モーダル中身 */
@@ -216,8 +239,8 @@ body {
     max-width: 500px;
     width: 90%;
     /* ↓追加ポイント */
-    max-height: 90vh;       /* 画面の90%までに制限 */
-    overflow-y: auto;       /* はみ出たらスクロール */
+    max-height: 90vh; /* 画面の90%までに制限 */
+    overflow-y: auto; /* はみ出たらスクロール */
     position: relative;
 }
 
@@ -319,4 +342,92 @@ body {
     width: 90%;
     max-width: 500px;
     position: relative;
+}
+
+.modal-content h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    color: #d8338c;
+}
+
+/* 追加 4/18 */
+.stats-box div {
+    flex: 1;
+    padding: 0 10px;
+    border-right: 1px solid #ddd;
+}
+
+.stats-box div:last-child {
+    border-right: none;
+}
+
+.stats-box span {
+    display: block;
+    font-size: 1.8em;
+    margin-top: 0.3em;
+    color: #d8338c;
+}
+
+.add-btn {
+    background: linear-gradient(to right, #ec6ead, #fbc7d4);
+    padding: 0.7em 1.6em;
+    font-weight: bold;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+/* データテーブル */
+.weight-table th {
+    background: #f6f0fc;
+    color: #333;
+    font-weight: bold;
+}
+
+.weight-table td {
+    color: #444;
+    font-size: 0.95em;
+}
+
+.weight-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.weight-table a {
+    color: #d8338c;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+/* 追加 */
+.header-inner a,
+.header-inner button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0.4em 1em;
+    margin-left: 1em;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header-inner a:hover,
+.header-inner button:hover {
+    background-color: #f0f0f0;
+}
+
+.header-inner button {
+    border: none;
+}
+
+.header-bg {
+    width: 100%;
+    background-color: #fff;
 }

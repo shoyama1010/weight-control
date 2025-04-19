@@ -1,7 +1,7 @@
 body {
     background: linear-gradient(to bottom right, #ffdede, #e0c8f1);
     font-family: 'Segoe UI', sans-serif;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
 }
 
@@ -60,7 +60,7 @@ button:hover {
 
 /* 変更 */
 .auth-container {
-    max-width: 400px;
+    max-width: 500px;
     margin: 60px auto;
     background: #fff;
     padding: 30px;
@@ -82,19 +82,21 @@ button:hover {
     color: #444;
 }
 
+.auth-container input[type="text"],
 .auth-container input[type="email"],
 .auth-container input[type="password"] {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
     margin-bottom: 15px;
     font-size: 14px;
+    /* text-align: center; */
 }
 
 .auth-container button {
-    width: 100%;
-    padding: 12px;
+    width: 90%;
+    padding: 8px;
     background: linear-gradient(to right, #e91e63, #f06292);
     color: white;
     border: none;
@@ -102,6 +104,7 @@ button:hover {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    text-align: center;
 }
 
 .auth-container .register-link {
@@ -112,7 +115,9 @@ button:hover {
 }
 
 .center-text {
+    width: 100%;
     text-align: center;
+    /* margin: 0 auto; */
     margin-top: 1em;
 }
 
