@@ -4,7 +4,7 @@
 
 <img width="1358" height="597" alt="Image" src="https://github.com/user-attachments/assets/67be76ae-4c6f-4dbe-9862-e9b28fae60ca" />
 
-
+<img width="1350" height="604" alt="Image" src="https://github.com/user-attachments/assets/4f9b9e0f-6f17-429d-8e27-0d5bfeebfb87" />
 
 # 作成した目的
 
