@@ -2,7 +2,7 @@
 
 <img width="1214" height="607" alt="Image" src="https://github.com/user-attachments/assets/6b4685e9-78cd-4f6f-8b10-313b89391547" />
 
-https://github.com/shoyama1010/weight-control/issues/3#issue-3228709533
+
 
 # 作成した目的
 
