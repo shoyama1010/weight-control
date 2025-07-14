@@ -2,6 +2,8 @@
 
 <img width="1214" height="607" alt="Image" src="https://github.com/user-attachments/assets/6b4685e9-78cd-4f6f-8b10-313b89391547" />
 
+<img width="1358" height="597" alt="Image" src="https://github.com/user-attachments/assets/67be76ae-4c6f-4dbe-9862-e9b28fae60ca" />
+
 
 
 # 作成した目的
