@@ -1,5 +1,7 @@
 # weight-control
 
+https://github.com/shoyama1010/weight-control/issues/3#issue-3228709533
+
 # 作成した目的
 
 
