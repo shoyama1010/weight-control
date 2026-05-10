@@ -6,6 +6,8 @@
 
 <img width="1350" height="604" alt="Image" src="https://github.com/user-attachments/assets/4f9b9e0f-6f17-429d-8e27-0d5bfeebfb87" />
 
+<img width="1320" height="674" alt="Image" src="https://github.com/user-attachments/assets/874e463d-1cea-46b3-8e07-9fe6ade9f6b5" />
+
 # 作成した目的
 - Laravelの模擬案件から、各機能要件を習得しており、応用機能として、今回CSV出力機能とレポート機能を取り組みでおります。
 - 以前から自分自身の「体重の増加」が気になっており、運動効果がどういう感じで現れるかを確認したかったので、ぜひアプリとして開発したかったです。
