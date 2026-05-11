@@ -46,10 +46,16 @@
         @endif
 
         {{-- 右：データ追加ボタン --}}
-        <!-- <div class="actions">
-            <a href="#modal1" class="btn-add">データ追加</a>
-        </div> -->
-        <div class="actions">
+        <div class="actions-buttons">
+            <a href="{{ route('weight_logs.report') }}"
+                class="report-btn">
+                レポート
+            </a>
+
+            <a href="{{ route('weight_logs.export.csv') }}"
+                class="csv-btn">
+                CSV出力
+            </a>
             <!-- 「モーダルを開く」専用URLとして weight_logs.create -->
             <a href="{{ route('weight_logs.create') }}" class="add-btn">データ追加</a>
         </div>
@@ -106,6 +112,7 @@
         <h2>Weight Log追加</h2>
 
         @if ($errors->any())
+
         <script>
             window.onload = function() {
                 document.getElementById('modal1').style.display = 'block';
@@ -145,7 +152,7 @@
                 <label for="exercise_time">運動時間</label>
                 <!-- <input type="time" name="exercise_time"> -->
                 <input type="time" name="exercise_time" id="exercise_time" value="{{ old('exercise_time') }}">
-                
+
                 @error('exercise_time')
                 <div class="error-message">{{ $message }}</div>
                 @enderror
@@ -174,7 +181,6 @@
         const modal = document.getElementById('modal1');
 
         console.log("📌 現在のパス:", pathname);
-
         // /weight_logs/create にアクセスされたときのみモーダルを表示
         if (pathname === '/weight_logs/create') {
             if (modal) {
@@ -187,6 +193,7 @@
 
         // ← ここが今回追加の処理（✕ボタン押下でモーダルを閉じる）
         const closeBtn = document.querySelector('.close-btn');
+
         if (closeBtn) {
             closeBtn.addEventListener('click', (e) => {
                 e.preventDefault(); // aタグのデフォルト動作を止める

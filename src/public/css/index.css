@@ -377,6 +377,55 @@ body {
     text-decoration: none;
 }
 
+/* CSVボタン */
+.csv-btn {
+    background: #ffffff;
+    color: #d8338c;
+    border: 1px solid #d8338c;
+    padding: 0.7em 1.4em;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.2s ease;
+}
+
+.csv-btn:hover {
+    background: #d8338c;
+    color: white;
+}
+
+/* レポートボタン */
+.report-btn {
+    background: #fff;
+    border: 2px solid #d8338c;
+    color: #d8338c;
+    padding: 0.7em 1.6em;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* ホバー */
+.report-btn:hover {
+    background: #d8338c;
+    color: #fff;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* gap: 1.5m; */
+    margin-left: auto;
+    /* padding-right: 0.5em; */
+}
+
 /* データテーブル */
 .weight-table th {
     background: #f6f0fc;

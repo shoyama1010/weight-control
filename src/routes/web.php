@@ -36,31 +36,34 @@ Route::post('/register/step2', [WeightInitController::class, 'store']);
 // 一般ユーザーが閲覧できる体重記録メイン画面
 Route::get('/weight_logs', [WeightLogController::class, 'index'])->name('weight_logs.index');
 
-Route::get('/weight_logs/search', [WeightLogController::class, 'search'])->name('weight_logs.search');
-
-Route::resource('weight_logs', WeightLogController::class);
 
 Route::middleware(['auth'])->group(function () {
+    // 管理画面の一覧作成
+    Route::get('/weight_logs', [WeightLogController::class, 'index'])->name('weight_logs.index');
+    // 検索
+    Route::get('/weight_logs/search', [WeightLogController::class, 'search'])->name('weight_logs.search');
+    // CSV
+    Route::get('/weight_logs/export/csv', [WeightLogController::class, 'exportCsv'])
+        ->name('weight_logs.export.csv');
+    // レポート
+    Route::get('/weight_logs/report', [WeightLogController::class, 'report'])
+        ->name('weight_logs.report');
     // ※あえて index メソッドを使って create画面（モーダル）を表示する
     Route::get('/weight_logs/create', [WeightLogController::class, 'index'])->name('weight_logs.create');
-
-    // 管理画面の作成、編集、更新、削除
-    Route::get('/weight_logs', [WeightLogController::class, 'index'])->name('weight_logs.index');
+    // 登録
     Route::post('/weight_logs', [WeightLogController::class, 'store'])->name('weight_logs.store');
-
+    // 編集
     Route::get('/weight_logs/{weight_log}/edit', [WeightLogController::class, 'edit'])->name('weight_logs.edit');
+    // 更新
     Route::put('/weight_logs/{weight_log}', [WeightLogController::class, 'update'])->name('weight_logs.update');
-    Route::resource('weight_logs', WeightLogController::class);
-
-    Route::get('/target_weight/edit', [TargetWeightController::class, 'edit'])->name('target_weight.edit');
-    Route::put('/target_weight', [TargetWeightController::class, 'update'])->name('target_weight.update');
-
-    Route::delete('/weight_logs/{weight_log}', [WeightLogController::class, 'destroy'])->name('weight_logs.destroy');
-
+    // 削除
+    Route::delete('/weight_logs/{weight_log}', [WeightLogController::class, 'destroy'])
+        ->name('weight_logs.destroy');
+    
     // 目標体重の設定・更新
     Route::get('/goal_setting', [TargetWeightController::class, 'edit'])->name('target_weight.edit');
     Route::put('/goal_setting', [TargetWeightController::class, 'update'])->name('target_weight.update');
 
     // 不要な show ルートは除外（エラー対策）
-    Route::resource('weight_logs', WeightLogController::class)->except(['show']);
+    Route::resource('weight_logs', WeightLogController::class)->except(['show']);    
 });

@@ -68,17 +68,16 @@ class WeightLogController extends Controller
 
         $weight_log->update($validated);
 
-
         return redirect()->route('weight_logs.index')->with('success', '更新しました');
     }
-
 
     public function search(Request $request)
     {
         $from = $request->input('from');
         $to = $request->input('to');
 
-        $query = WeightLog::query();
+        // $query = WeightLog::query();
+        $query = WeightLog::where('user_id', auth()->id());
 
         if ($from) {
             $query->where('date', '>=', $from);
@@ -117,5 +116,78 @@ class WeightLogController extends Controller
         $weight_log->delete();
 
         return redirect()->route('weight_logs.index')->with('success', '削除しました');
+    }
+
+    public function exportCsv()
+    {
+        $user = Auth::user();
+
+        $weightLogs = WeightLog::where('user_id', $user->id)
+            ->orderBy('date', 'desc')
+            ->get();
+
+        $csvHeader = [
+            '日付',
+            '体重',
+            '摂取カロリー',
+            '運動時間',
+            '運動内容'
+        ];
+
+        $callback = function () use ($weightLogs, $csvHeader) {
+
+            $handle = fopen('php://output', 'w');
+
+            mb_convert_variables('SJIS-win', 'UTF-8', $csvHeader);
+
+            fputcsv($handle, $csvHeader);
+
+            foreach ($weightLogs as $log) {
+
+                $row = [
+                    $log->date,
+                    $log->weight,
+                    $log->calories,
+                    $log->exercise_time,
+                    $log->exercise_content,
+                ];
+
+                mb_convert_variables('SJIS-win', 'UTF-8', $row);
+
+                fputcsv($handle, $row);
+            }
+
+            fclose($handle);
+        };
+
+        return response()->streamDownload(
+            $callback,
+            'weight_logs.csv',
+            [
+                'Content-Type' => 'text/csv',
+            ]
+        );
+    }
+
+    // レポート機能
+    public function report()
+    {
+        $user = Auth::user();
+
+        $logs = WeightLog::where('user_id', $user->id);
+
+        $avgWeight = round($logs->avg('weight'), 1);
+        $maxWeight = $logs->max('weight');
+        $minWeight = $logs->min('weight');
+        $countLogs = $logs->count();
+        $avgCalories = round($logs->avg('calories'));
+
+        return view('weight_logs.report', compact(
+            'avgWeight',
+            'maxWeight',
+            'minWeight',
+            'countLogs',
+            'avgCalories'
+        ));
     }
 }
