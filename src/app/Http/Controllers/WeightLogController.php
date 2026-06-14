@@ -76,7 +76,6 @@ class WeightLogController extends Controller
         $from = $request->input('from');
         $to = $request->input('to');
 
-        // $query = WeightLog::query();
         $query = WeightLog::where('user_id', auth()->id());
 
         if ($from) {
@@ -110,7 +109,6 @@ class WeightLogController extends Controller
             'searchCount' // ←追加
         ));
     }
-
     public function destroy(WeightLog $weight_log)
     {
         $weight_log->delete();
@@ -182,12 +180,25 @@ class WeightLogController extends Controller
         $countLogs = $logs->count();
         $avgCalories = round($logs->avg('calories'));
 
+        // ===== 月別平均レポート追加 =====
+        $monthlyReports = WeightLog::selectRaw('
+        DATE_FORMAT(date, "%Y-%m") as month,
+        AVG(weight) as avg_weight,
+        AVG(calories) as avg_calories,
+        COUNT(*) as total_logs
+    ')
+            ->where('user_id', $user->id)
+            ->groupBy('month')
+            ->orderBy('month', 'desc')
+            ->get();
+
         return view('weight_logs.report', compact(
             'avgWeight',
             'maxWeight',
             'minWeight',
             'countLogs',
-            'avgCalories'
+            'avgCalories',
+            'monthlyReports'
         ));
     }
 }

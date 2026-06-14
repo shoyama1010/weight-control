@@ -47,6 +47,46 @@
 
   </div>
 
+  {{-- ===== 月別平均レポート ===== --}}
+  <h2 class="monthly-title">
+    月別平均レポート
+  </h2>
+
+  <div class="monthly-report-list">
+
+    @foreach($monthlyReports as $report)
+
+    <div class="monthly-card">
+
+      <h3>{{ $report->month }}</h3>
+
+      <p>
+        平均体重：
+        <span>
+          {{ number_format($report->avg_weight, 1) }} kg
+        </span>
+      </p>
+
+      <p>
+        平均カロリー：
+        <span>
+          {{ number_format($report->avg_calories, 0) }} kcal
+        </span>
+      </p>
+
+      <p>
+        記録数：
+        <span>
+          {{ $report->total_logs }} 件
+        </span>
+      </p>
+
+    </div>
+
+    @endforeach
+
+  </div>
+
 </div>
 
 @endsection
