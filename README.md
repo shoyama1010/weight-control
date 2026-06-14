@@ -24,6 +24,9 @@ http://localhost
 
 ・CRUD機能
 
+・CSVエクスポート機能
+
+・レポート機能
 
 # 使用技術
 ・Laravel 8
