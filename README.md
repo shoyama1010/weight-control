@@ -167,7 +167,7 @@ php artisan test --env=testing
 
 ## 実装済みテスト&結果
 
-テスト名                  内容                                               結果
+テスト名                 - 内容                                              - 結果
 
 WeightLogIndexTest	- ログイン済みユーザーが体重一覧画面を表示できることを確認	  - ✅ PASS
 
