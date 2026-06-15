@@ -170,8 +170,11 @@ php artisan test --env=testing
 テスト名                  内容                                               結果
 
 WeightLogIndexTest	- ログイン済みユーザーが体重一覧画面を表示できることを確認	  - ✅ PASS
+
 WeightLogStoreTest	- 体重ログを正常に登録できることを確認	                    - ✅ PASS
+
 WeightLogValidationTest	- 必須項目未入力時にバリデーションエラーとなることを確認	- ✅ PASS
+
 WeightLogUpdateTest	 - 既存の体重ログを正常に更新できることを確認	              - ✅ PASS
 
 # 工夫した点
