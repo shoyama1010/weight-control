@@ -1,4 +1,4 @@
-# weight-control(体重管理アプリ)
+# Weight-control(体重管理アプリ)
 
 # アプリ概要
 Weight Control は、日々の体重や摂取カロリー、運動内容を記録・管理できる laravel(バックエンドのみ)の体重管理アプリケーションです。
