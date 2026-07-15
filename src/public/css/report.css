@@ -118,3 +118,33 @@ body {
     color: #d8338c;
     font-size: 21px;
 }
+
+/* グラフ */
+.report-line{
+    margin:60px 0;
+    border:none;
+    border-top:1px solid #eee;
+}
+
+.report-subtitle{
+    text-align:center;
+    color:#d8338c;
+    font-size:32px;
+    margin-bottom:40px;
+}
+
+.chart-area{
+
+    width:90%;
+
+    margin:0 auto 80px;
+
+    background:#fff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}

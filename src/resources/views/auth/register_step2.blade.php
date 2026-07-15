@@ -9,9 +9,10 @@
 
 <body>
     <div class="auth-container">
-    <h1>PiGLy</h1>
-    <h2>新規会員登録</h2>
-    <p>step2体重データーの入力</p>
+        <h1>BODYCON</h1>
+
+        <h2>新規会員登録</h2>
+        <p>step2体重データーの入力</p>
 
         <form method="POST" action="{{ url('/register/step2') }}">
             @csrf

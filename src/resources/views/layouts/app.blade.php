@@ -27,7 +27,7 @@ $path = request()->path();
 <body>
     <div class="header-bg">
         <header class="header-inner">
-            <div class="logo">PiGLy</div>
+            <div class="logo">BODYCON</div>
             <div>
                 <a href="{{ route('target_weight.edit') }}">目標体重設定</a>
                 <form method="POST" action="{{ route('logout') }}" style="display:inline;">

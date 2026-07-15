@@ -51,7 +51,7 @@ class WeightLogController extends Controller
         $validated = $request->validated();
 
         $user = auth()->user();
-        $user->weightLogs()->create($validated);
+        WeightLog::create(array_merge($validated, ['user_id' => $user->id]));
 
         return redirect()->route('weight_logs.index')->with('success', '体重ログを追加しました！');
     }
@@ -171,7 +171,11 @@ class WeightLogController extends Controller
     public function report()
     {
         $user = Auth::user();
-
+        /*
+    |--------------------------------------------------------------------------
+    | 基本レポート
+    |--------------------------------------------------------------------------
+    */
         $logs = WeightLog::where('user_id', $user->id);
 
         $avgWeight = round($logs->avg('weight'), 1);
@@ -192,13 +196,34 @@ class WeightLogController extends Controller
             ->orderBy('month', 'desc')
             ->get();
 
+        /*
+    |--------------------------------------------------------------------------
+    | Chart.js用の体重推移データ
+    |--------------------------------------------------------------------------
+    */
+        $chartLogs = WeightLog::where('user_id', $user->id)
+            ->orderBy('date', 'asc')
+            ->get(['date', 'weight']);
+
+        // 横軸に使う日付
+        $chartLabels = $chartLogs->map(function ($log) {
+            return \Carbon\Carbon::parse($log->date)->format('Y/m/d');
+        })->values();
+
+        // 縦軸に使う体重
+        $chartWeights = $chartLogs->pluck('weight')->map(function ($weight) {
+            return (float) $weight;
+        })->values();
+
         return view('weight_logs.report', compact(
             'avgWeight',
             'maxWeight',
             'minWeight',
             'countLogs',
             'avgCalories',
-            'monthlyReports'
+            'monthlyReports',
+            'chartLabels',
+            'chartWeights'
         ));
     }
 }

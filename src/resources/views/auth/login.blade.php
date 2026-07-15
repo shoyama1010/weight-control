@@ -5,14 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <title>ログイン</title>
-    <!-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> -->
+
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 </head>
 
 <body>
     <div class="auth-container">
-    <h1>PiGLy</h1>
-    <h2>ログイン</h2>
+        <h1>BODYCON</h1>
+        <h2>ログイン</h2>
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div>

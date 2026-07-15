@@ -44,22 +44,16 @@
       <h3>平均カロリー</h3>
       <p>{{ $avgCalories }} kcal</p>
     </div>
-
   </div>
 
   {{-- ===== 月別平均レポート ===== --}}
   <h2 class="monthly-title">
     月別平均レポート
   </h2>
-
   <div class="monthly-report-list">
-
     @foreach($monthlyReports as $report)
-
     <div class="monthly-card">
-
       <h3>{{ $report->month }}</h3>
-
       <p>
         平均体重：
         <span>
@@ -80,13 +74,79 @@
           {{ $report->total_logs }} 件
         </span>
       </p>
-
     </div>
-
     @endforeach
-
   </div>
 
+  {{-- ===== グラフ ===== --}}
+  <hr class="report-line">
+
+  <h2 class="report-subtitle">
+    体重推移グラフ
+  </h2>
+
+  <div class="chart-area">
+    <canvas id="weightChart"></canvas>
+  </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+  const labels = @json($chartLabels);
+  const weights = @json($chartWeights);
+
+  const ctx = document.getElementById('weightChart');
+
+  new Chart(ctx, {
+    type: 'line',
+
+    data: {
+      labels: labels,
+
+      datasets: [{
+        label: '体重 (kg)',
+
+        data: weights,
+
+        borderColor: '#e54b9b',
+
+        backgroundColor: 'rgba(229,75,155,0.15)',
+
+        fill: true,
+
+        tension: 0.3,
+
+        borderWidth: 3,
+
+        pointRadius: 5,
+
+        pointBackgroundColor: '#e54b9b'
+      }]
+    },
+
+    options: {
+      responsive: true,
+
+      plugins: {
+        legend: {
+          display: true
+        }
+
+      },
+
+      scales: {
+        y: {
+
+          beginAtZero: false
+        }
+
+      }
+
+    }
+
+  });
+</script>
 
 @endsection

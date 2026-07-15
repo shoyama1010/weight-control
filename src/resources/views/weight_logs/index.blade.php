@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1 class="title">Weight-control</h1>
+    <h1 class="title">Body-Controlle</h1>
 
     <div class="stats-box">
         <div>目標体重 <span>{{ number_format($targetWeight, 1) ?? '未設定' }} kg</span></div>

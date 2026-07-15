@@ -10,7 +10,8 @@
 
 <body>
     <div class="auth-container">
-        <h1>PiGLy</h1>
+        <h1>BODYCON</h1>
+
         <h2>新規会員登録</h2>
         <p class="account-text">step1アカウント情報の登録</p>
 
