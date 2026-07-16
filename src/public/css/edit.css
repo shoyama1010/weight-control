@@ -1,214 +1,341 @@
+/* =================================
+   共通設定
+================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
 body {
-    background: linear-gradient(to bottom right, #fce4ec, #e0f7fa);
-    font-family: 'Segoe UI', sans-serif;
+    min-height: 100%;
+}
+
+body {
     margin: 0;
     padding: 0;
+    background: linear-gradient(to bottom right, #fce4ec, #e0f7fa);
+    font-family: "Segoe UI", sans-serif;
+    color: #333;
 }
+
+/* =================================
+   ヘッダー
+================================= */
 
 .header-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    min-height: 72px;
+    padding: 14px 24px;
     background-color: #fff;
-    padding: 0.8em 1.5em;
     border-bottom: 1px solid #eee;
 }
 
-.container {
-    max-width: 600px;
-    margin: 3em auto;
-    background-color: white;
-    padding: 2em;
-    border-radius: 1em;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.title {
+.logo {
+    color: #d35ca3;
     font-size: 1.8em;
     font-weight: bold;
-    color: #d8338c;
-    text-align: left;
-    margin-bottom: 1.5em;
+    text-decoration: none;
 }
 
-form div {
-    margin-bottom: -3.2em;
-    text-align: left;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5em;
-    font-weight: bold;
-    color: #333;
-}
-
-input[type="text"],
-input[type="number"],
-input[type="date"],
-input[type="time"],
-textarea {
-    width: 100%;
-    padding: 0.75em;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1em;
-}
-
-textarea {
-    resize: vertical;
-    height: 100px;
-}
-
-/* 戻る */
-.btn-back {
-    background-color: #d3d3d3;
-    color: black;
-}
-
-/* 更新 */
-.btn-update {
-    background: linear-gradient(to right, #d26ac2, #f8a8dc);
-    color: white;
-}
-
-/* 削除 */
-.btn-delete {
-    background: linear-gradient(to right, #ff5e62, #ff9966);
-    color: white;
-    padding: 0.7em 2em;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-
-.form-group input {
-    width: 100%;
-    padding: 0.5em;
-    font-size: 1em;
-}
-
-/* ボタン配置：中央寄せ、3つ横並び */
-.button-group {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 2.0em;
-}
-
-
-.btn-pink {
-    background: linear-gradient(to right, #ec6ead, #fbc7d4);
-    color: white;
-    padding: 0.7em 2em;
-    border: none;
-    border-radius: 8px;
-}
-
-/* ロゴ部分 */
-.logo {
-    font-size: 1.6em;
-    font-weight: bold;
-    color: #d35ca3;
-}
-
-/* 右側リンク＆ログアウトフォーム */
 .header-inner > div {
     display: flex;
     align-items: center;
-    gap: 1em;
+    gap: 16px;
 }
 
-/* リンクのスタイル */
 .header-inner a {
     color: #333;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
 }
 
-/* ログアウトボタン */
+.header-inner form {
+    margin: 0;
+}
+
 .header-inner form button {
-    padding: 0.4em 0.8em;
-    background-color: #eee;
+    padding: 8px 14px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    background-color: #eee;
+    color: #333;
+    font-size: 14px;
     font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .header-inner form button:hover {
-    background-color: #ccc;
+    background-color: #d8d8d8;
 }
 
-.button-group a,
-.button-group button,
-.button-group form {
-    /* flex: 1; */
-    text-align: center;
+/* =================================
+   編集画面の外枠
+================================= */
 
+.container {
+    width: calc(100% - 32px);
+    max-width: 1040px;
+    margin: 48px auto;
+    padding: 36px;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
-.delete-button-wrapper {
-    text-align: right;
-    margin-top: 1.5em;
-}
-
-.btn-delete {
-    background: linear-gradient(to right, #ff5e62, #ff9966);
-    color: white;
-    padding: 0.7em 0.5em;
-    border: none;
-    border-radius: 8px;
+.title {
+    margin: 0 0 36px;
+    color: #d8338c;
+    font-size: 1.8em;
     font-weight: bold;
-    cursor: pointer;
+    text-align: left;
 }
 
-.btn-back,
-.btn-update {
-    padding: 1em 2em; /* ← 横の余白を減らす（長さを短く） */
+/* =================================
+   フォーム
+================================= */
+
+.form-group {
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
     font-weight: bold;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    width: auto;              /* ← 必要最小限のサイズに */
-    min-width: 70px;          /* ← お好みで調整 */
 }
 
-.delete-button-wrapper {
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group textarea {
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    padding: 11px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 16px;
+    line-height: 1.4;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #d8338c;
+    box-shadow: 0 0 0 3px rgba(216, 51, 140, 0.14);
+}
+
+/* エラー表示 */
+.error-message {
+    display: block;
+    margin: 6px 0 0 2px;
+    color: #cc0000;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* =================================
+   更新・戻るボタン
+================================= */
+
+.button-group {
     display: flex;
-    justify-content: flex-end; /* ←右端に寄せる */
-    margin-top: 1.0em;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
 }
 
 .button-group a,
 .button-group button {
-    width: auto;          /* ← フォーム幅に応じてサイズ調整 */
-    min-width: 100px;     /* ← 最低幅を設定（お好みで調整） */
-    padding: 0.5em 1em;   /* ← 上下・左右の余白も調整 */
-    font-size: 0.9em;
-}
-
-.btn-gray {
-    background-color: #ccc;
-    padding: 0.7em 2em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 120px;
+    min-height: 44px;
+    padding: 10px 20px;
+    border: none;
     border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
     text-decoration: none;
-    color: black;
+    cursor: pointer;
 }
 
-.error-message {
-    color: #cc0000;
-    font-size: 0.9em;
-    margin-top: 0.4em;
-    margin-left: 0.2em;
-    display: block;
+.btn-back,
+.btn-gray {
+    background-color: #d3d3d3;
+    color: #222;
 }
 
-/* 追加 */
-.form-group {
-    /* margin: 1em 0; */
-    margin-bottom: 3em;
-    text-align: left;
+.btn-back:hover,
+.btn-gray:hover {
+    background-color: #c4c4c4;
+}
+
+.btn-update,
+.btn-pink {
+    background: linear-gradient(to right, #d26ac2, #f8a8dc);
+    color: #fff;
+}
+
+.btn-update:hover,
+.btn-pink:hover {
+    opacity: 0.9;
+}
+
+/* =================================
+   削除ボタン
+================================= */
+
+.delete-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.delete-button-wrapper form {
+    margin: 0;
+}
+
+.btn-delete {
+    min-width: 100px;
+    min-height: 44px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, #ff5e62, #ff9966);
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    opacity: 0.9;
+}
+
+/* =================================
+   タブレット・スマホ対応
+================================= */
+
+@media screen and (max-width: 768px) {
+    .header-inner {
+        min-height: auto;
+        padding: 14px 16px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 1.6em;
+    }
+
+    .header-inner > div {
+        gap: 10px;
+    }
+
+    .header-inner a,
+    .header-inner form button {
+        font-size: 13px;
+    }
+
+    .container {
+        width: calc(100% - 24px);
+        margin: 24px auto;
+        padding: 28px 22px;
+    }
+
+    .title {
+        margin-bottom: 28px;
+        font-size: 1.55em;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .button-group {
+        gap: 12px;
+    }
+
+    .button-group a,
+    .button-group button {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+/* 小さいスマホ */
+@media screen and (max-width: 480px) {
+    .header-inner {
+        align-items: flex-start;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
+
+    .header-inner > div {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .container {
+        width: calc(100% - 16px);
+        margin: 12px auto;
+        padding: 24px 16px;
+        border-radius: 12px;
+    }
+
+    .title {
+        font-size: 1.35em;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group input[type="date"],
+    .form-group input[type="time"],
+    .form-group textarea {
+        font-size: 16px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .button-group a,
+    .button-group button {
+        width: 100%;
+    }
+
+    .delete-button-wrapper {
+        width: 100%;
+    }
+
+    .delete-button-wrapper form,
+    .btn-delete {
+        width: 100%;
+    }
 }
