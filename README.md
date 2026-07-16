@@ -12,6 +12,8 @@ BODYCON は、日々の体重や摂取カロリー、運動内容を記録・管
 - 以前から自分自身の「体重の増加」が気になっており、運動効果がどういう感じで現れるかを確認したかったので、ぜひアプリとして開発したかったです。
 - 将来的に、フロントエンドとAPI連携でのSPA開発予定にて、「独自の健康アプリ」としても、新規開発して実装していきたいと思います。
 
+<img width="1221" height="673" alt="スクリーンショット (5920)" src="https://github.com/user-attachments/assets/60df9a6a-90c4-4fd2-a770-55468fd5bea8" />
+
 <img width="1349" height="675" alt="スクリーンショット (5918)" src="https://github.com/user-attachments/assets/caca4728-c994-4d58-a846-624c57ef165b" />
 
 <img width="1358" height="597" alt="Image" src="https://github.com/user-attachments/assets/67be76ae-4c6f-4dbe-9862-e9b28fae60ca" />
