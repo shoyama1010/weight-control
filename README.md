@@ -31,6 +31,16 @@ http://localhost
 ## 本番環境（Railway）
 https://weight-control-production.up.railway.app/
 
+## デモ
+- デモ用アカウント
+
+公開環境では、以下のアカウントでログインして各機能をお試しいただけます。
+
+- メールアドレス：`test@example.com`
+- パスワード：`password`
+
+※ ポートフォリオ確認用のデモアカウントです。
+
 # 機能一覧
 ・認証機能
 
