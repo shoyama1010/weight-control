@@ -94,7 +94,7 @@ https://weight-control-production.up.railway.app/
 # 環境構築
 ## 1 Gitファイルをクローンする
 
-git clone https://github.com/shoyama1010/fruit-furima.git
+git clone https://github.com/shoyama1010/weight-control.git
 
 ## 2 Dockerコンテナを作成する
 
