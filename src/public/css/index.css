@@ -31,12 +31,7 @@ body {
     width:calc(100% - 30px);
     max-width:1120px;
     margin:30px auto;
-    /* max-width: 1120px;
-    margin: 2em auto;
-    background: white;
-    padding: 2em;
-    border-radius: 1em;
-    text-align: center; */
+    
 }
 
 .title {
