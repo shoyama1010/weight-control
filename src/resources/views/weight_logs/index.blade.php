@@ -2,19 +2,40 @@
 
 @section('content')
 <div class="container">
-    <h1 class="title">Body-Controlle</h1>
+    <!-- <h1 class="title">Body-Controlle</h1> -->
+    <div class="page-heading">
+        <div>
+            <p class="page-label">WEIGHT MANAGEMENT</p>
+            <h1 class="title">Body Control</h1>
+            <p class="page-description">
+                毎日の記録から、理想のカラダへ。
+            </p>
+        </div>
+    </div>
 
     <div class="stats-box">
-        <div>目標体重 <span>{{ number_format($targetWeight, 1) ?? '未設定' }} kg</span></div>
-        <div>目標まで <span>
+        <div class="stat-item">
+            <p class="stat-label">目標体重</p>
+            <span>{{ number_format($targetWeight, 1) ?? '未設定' }} <small>kg</small></span>
+        </div>
+
+        <div class="stat-item">
+            <p class="stat-label">目標まで</p>
+            <span>
                 @if(is_numeric($weightDiff))
-                {{ number_format($weightDiff, 1) }} kg
+                {{ number_format($weightDiff, 1) }} <small>kg</small>
                 @else
                 未計算
                 @endif
-            </span></div>
-        <div>最新体重 <span>{{ number_format($latestWeight, 1) ?? '未記録' }} kg</span></div>
+            </span>
+        </div>
+
+        <div class="stat-item">
+            <p class="stat-label">最新体重</p>
+            <span>{{ number_format($latestWeight, 1) ?? '未記録' }} <small>kg</small></span>
+        </div>
     </div>
+    
 
     {{-- 横並び用のラッパー --}}
     <div class="search-add-wrapper">
@@ -46,7 +67,7 @@
         @endif
 
         {{-- 右：データ追加ボタン --}}
-        <div class="actions-buttons">
+        <div class="action-buttons">
             <a href="{{ route('weight_logs.report') }}"
                 class="report-btn">
                 レポート
