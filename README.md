@@ -67,7 +67,7 @@ https://weight-control-production.up.railway.app/
 
 ・Nginx 1.21.1
 
-・PHP 7.4.9
+・PHP 8.2.35
 
 ・html
 
